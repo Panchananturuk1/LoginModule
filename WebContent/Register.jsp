@@ -9,15 +9,19 @@
 <body>
 
 <form action="RegisterServlet" method="post">
-	<table>
-			<tr><td> User Name: </td> <td><input type="text" name="uname"></td></tr>
-			<tr><td> Email : </td> <td><input type="text" name="email"></td></tr>
-			<tr><td> Password: </td> <td><input type="password" name="pass"></td></tr>
-			<tr><td>Confirm Password: </td> <td><input type="password" name="pass2"></td></tr>
+	<table border="1" align="center">
+			<tr align="center"><td colspan="2"><b>Registration form</b></td></tr>
+			<tr><td> User Name:</td> 	<td><input type="text" name="uname" required></td></tr>
+			<tr><td> Email :</td> 		<td><input type="text" name="email" required></td></tr>
+			<tr><td> Password </td> 	<td><input type="password" name="pass" required></td></tr>
+			<tr><td>Confirm Password:</td> <td><input type="password" name="pass2" required></td></tr>
 			<tr>
 				<td><input type="submit" name="submit" value="Register"></td> 
-				<td><a href="login.jsp">Already a User Login Here</a></td>	
+				<td><input type="reset"  value="RESET"></td> 
 			</tr>
+				<tr><td colspan="2"><a href="login.jsp">Already a User Login Here</a></td>	</tr>
+				
+			
 	</table>
 </form>
 

@@ -1,7 +1,10 @@
 package Login;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +13,50 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+//import Login.LoginDao;
+
+
 @WebServlet("/Login")
 public class Login extends HttpServlet {
+	public static final long serialVersionUID= 1L;
+	String sql = "select * from hey where uname=? and pass=?";
+	String uname, pass;
+
+	public boolean checks(String uname, String pass){
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");//or ==> (url, username, password);
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, uname);
+			st.setString(2, pass);
+			ResultSet rs = st.executeQuery();
+			
+						
+			if(rs.next()){
+				return true;
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		String uname = request.getParameter("uname");
-		String pass = request.getParameter("pass");
 		
-		LoginDao dao = new LoginDao();
+		 uname = request.getParameter("uname");
+		 pass = request.getParameter("pass");
+		
+		
+		Login dao = new Login();
+		
 		
 		//if(uname.equals("monu") && pass.equals("123") ){
 		
-		if(dao.check(uname, pass) ){
+		if(dao.checks(uname,pass)){
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("username", uname);
@@ -30,9 +64,10 @@ public class Login extends HttpServlet {
 			
 		}else
 			{
-			//	PrintWriter out = response.getWriter();
+			
 				
 				response.sendRedirect("login.jsp");
+				//PrintWriter out = response.getWriter();
 			//	out.println("username or password is wrong");
 			}
 	}

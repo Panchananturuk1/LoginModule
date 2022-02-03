@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
 	String username , emails, password1,password2;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/html");
+		 response.setContentType("text/html");
 		 username = request.getParameter("uname");
 		 emails = request.getParameter("email");
 		 password1 = request.getParameter("pass");
@@ -36,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
 			 
 			 Class.forName("com.mysql.jdbc.Driver");
 			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");
-			 String sql = "insert into employee(username,email,pass,pass2) values(?,?,?,?)";
+			 String sql = "insert into hey(uname,email,pass,pass2) values(?,?,?,?)";
 			 PreparedStatement ps = con.prepareStatement(sql);
 			 
 			 ps.setString(1,username);

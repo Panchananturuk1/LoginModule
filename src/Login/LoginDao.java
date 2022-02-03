@@ -5,17 +5,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/LoginDao")
 public class LoginDao {
 	
 	
-	String sql = "select * from employee where username=? and pass=?";
+	String sql = "select * from hey where uname=? and pass=?";
 	
-	//String ResultSet rs= st.ExecuteQuery("");
-	//String url= "jdbc:mysql://localhost:3036:/mydb";
-	//String username = "root";
-	//String password = "1234";
 	
-	public boolean check(String uname, String pass){
+	public boolean checks(String uname, String pass){
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -25,6 +24,7 @@ public class LoginDao {
 			st.setString(2, pass);
 			ResultSet rs = st.executeQuery();
 			
+						
 			if(rs.next()){
 				return true;
 			}

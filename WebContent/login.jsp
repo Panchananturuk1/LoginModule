@@ -9,8 +9,8 @@
 <body>
 <form action="Login" method="post">
 	<table>
-			<tr><td>Enter User name: </td> <td><input type="text" name="uname"></td></tr>
-			<tr><td>Enter Password: </td> <td><input type="password" name="pass"></td></tr>
+			<tr><td>Enter User name: </td> <td><input type="text" name="uname" required></td></tr>
+			<tr><td>Enter Password: </td> <td><input type="password" name="pass" required></td></tr>
 			<tr><td><input type="submit" name="submit" value="login"></td> <td><a href="Register.jsp">New User Register Here</a></td>	</tr>
 	</table>
 </form>
