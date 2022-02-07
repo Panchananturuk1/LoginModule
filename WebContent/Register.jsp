@@ -4,26 +4,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="reg.css">
+<script src="validate.js"></script>
+<title>Register</title>
+
+   
+
+
 </head>
 <body>
-
-<form action="RegisterServlet" method="post">
-	<table border="1" align="center">
-			<tr align="center"><td colspan="2"><b>Registration form</b></td></tr>
-			<tr><td> User Name:</td> 	<td><input type="text" name="uname" required></td></tr>
-			<tr><td> Email :</td> 		<td><input type="text" name="email" required></td></tr>
-			<tr><td> Password </td> 	<td><input type="password" name="pass" required></td></tr>
-			<tr><td>Confirm Password:</td> <td><input type="password" name="pass2" required></td></tr>
+<div>
+<form name="form" action="RegisterServlet" method="post" onsubmit="return validates()">
+	<table class="content-table">
+			<tr align="center"><th colspan="2">Registration form</th></tr>
+		<tbody>
+			<tr><td> User Name:</td>
+			<td><input type="text" name="uname" required></td> </tr>
+			<tr><td> Email :</td>
+			<td><input type="text" name="email" required></td> </tr>
+			<tr><td> Password </td>
+			<td><input type="password" name="pass" ></td> </tr>
+			<tr><td>Confirm Password:</td>
+			<td><input type="password" name="pass2" ></td> </tr>
 			<tr>
-				<td><input type="submit" name="submit" value="Register"></td> 
+				<td><input type="submit" name="submit" value="Register" ></td> 
 				<td><input type="reset"  value="RESET"></td> 
 			</tr>
 				<tr><td colspan="2"><a href="login.jsp">Already a User Login Here</a></td>	</tr>
 				
-			
+		</tbody>	
 	</table>
 </form>
+</div>
 
 </body>
 </html>

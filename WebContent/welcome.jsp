@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome</title>
 </head>
 <body>
 
@@ -20,6 +20,7 @@
 		}
 	%>
 	
+	<script>alert("Credential Matching");</script>
 	hey ${username} Welcome /............ <br>
 	<a href="video.jsp">VIDEOS</a><br>
 	

@@ -14,7 +14,7 @@ public class LoginDao {
 	String sql = "select * from hey where uname=? and pass=?";
 	
 	
-	public boolean checks(String uname, String pass){
+	public boolean checks2(String uname, String pass){
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -27,6 +27,7 @@ public class LoginDao {
 						
 			if(rs.next()){
 				return true;
+				 
 			}
 			
 		} catch (Exception e) {

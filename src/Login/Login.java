@@ -1,11 +1,14 @@
 package Login;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+//import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+//import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +35,8 @@ public class Login extends HttpServlet {
 			st.setString(2, pass);
 			ResultSet rs = st.executeQuery();
 			
+		
+			
 						
 			if(rs.next()){
 				return true;
@@ -49,7 +54,7 @@ public class Login extends HttpServlet {
 		
 		 uname = request.getParameter("uname");
 		 pass = request.getParameter("pass");
-		
+			PrintWriter ps = response.getWriter();
 		
 		Login dao = new Login();
 		
@@ -58,6 +63,7 @@ public class Login extends HttpServlet {
 		
 		if(dao.checks(uname,pass)){
 			
+			ps.println("user ane and password is correct");
 			HttpSession session = request.getSession();
 			session.setAttribute("username", uname);
 			response.sendRedirect("welcome.jsp");  
@@ -65,13 +71,41 @@ public class Login extends HttpServlet {
 		}else
 			{
 			
-				
+				ps.println("user ane and password is wrong");
 				response.sendRedirect("login.jsp");
-				//PrintWriter out = response.getWriter();
-			//	out.println("username or password is wrong");
+				
+			
 			}
+		
+		
+
+		
+		
+		
+		
 	}
 
 
 
 }
+
+
+
+/* ANOTHER METHOD OF CHECKING */
+
+
+
+//LoginDao dao = new LoginDao();
+//
+//// if(uname.isEmpty() || pass.isEmpty() )
+// if(dao.checks2(uname, pass))
+// {
+//           RequestDispatcher rss = request.getRequestDispatcher("welcome.jsp");
+//           rss.include(request, response);
+// }
+// else
+// {
+//           RequestDispatcher rss =       request.getRequestDispatcher("index.jsp");
+//           rss.forward(request, response);
+//          
+// }

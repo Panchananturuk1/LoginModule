@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//import Login.Login;
+
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -47,6 +49,7 @@ public class RegisterServlet extends HttpServlet {
 			// ResultSet rs = ps.executeQuery();
 			 ps.executeUpdate();
 			 out.println("User Sucessfully Registered");
+			// response.sendRedirect("login.jsp");
 			 
 			 
 		 }catch(Exception e){

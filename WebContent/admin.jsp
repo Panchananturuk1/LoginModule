@@ -5,15 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="reg.css">
-<script src="log.js">
-
-
-
-</script>
-<title>Login</title>
+<title>Admin Login</title>
 </head>
 <body>
-<form name="form" action="Login" method="post"  onsubmit="return validates()">
+<form action="adminLogin" method="post">
 	<table class="content-table">
 			<tr><th colspan="2">Login</th></tr>
 			<tr><td>Enter User name: </td> <td><input type="text" name="uname" ></td></tr>
