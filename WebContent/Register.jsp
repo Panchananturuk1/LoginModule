@@ -19,13 +19,13 @@
 			<tr align="center"><th colspan="2">Registration form</th></tr>
 		<tbody>
 			<tr><td> User Name:</td>
-			<td><input type="text" name="uname" required></td> </tr>
+			<td><input type="text" name="uname" Placeholder="Enter User Name"  required></td> </tr>
 			<tr><td> Email :</td>
-			<td><input type="text" name="email" required></td> </tr>
+			<td><input type="text" name="email" Placeholder="Enter Email" required></td> </tr>
 			<tr><td> Password </td>
-			<td><input type="password" name="pass" ></td> </tr>
+			<td><input type="password" name="pass" Placeholder="Enter Password"></td> </tr>
 			<tr><td>Confirm Password:</td>
-			<td><input type="password" name="pass2" ></td> </tr>
+			<td><input type="password" name="pass2" Placeholder="Confirm your password"></td> </tr>
 			<tr>
 				<td><input type="submit" name="submit" value="Register" ></td> 
 				<td><input type="reset"  value="RESET"></td> 

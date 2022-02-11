@@ -10,18 +10,19 @@
 
 
 </script>
-<title>Login</title>
+<title>User Login</title>
 </head>
-<body>
+<body><div align="center">
 <form name="form" action="Login" method="post"  onsubmit="return validates()">
 	<table class="content-table">
-			<tr><th colspan="2">Login</th></tr>
+			<tr><th colspan="2">User Login</th></tr>
 			<tr><td>Enter User name: </td> <td><input type="text" name="uname" ></td></tr>
 			<tr><td>Enter Password: </td> <td><input type="password" name="pass" ></td></tr>
-			<tr><td colspan="2"><input type="submit" name="submit" value="login"></td> 	</tr>
-			<tr><td colspan="2"><a href="Register.jsp">New User Register Here</a></td></tr>
+			<tr><td colspan="2"><input type="submit" name="submit" value="Login"></td> 	</tr>
+			<tr><td><a href="Register.jsp">New User Register Here</a></td>
+			<td><a href="admin.jsp">Admin Login</a></td></tr>
 	</table>
-</form>
-
+	</form>
+</div>
 </body>
 </html>

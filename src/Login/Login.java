@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.servlet.RequestDispatcher;
 //import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 //import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -52,9 +53,10 @@ public class Login extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 uname = request.getParameter("uname");
+		response.setContentType("text/html");
+		uname = request.getParameter("uname");
 		 pass = request.getParameter("pass");
-			PrintWriter ps = response.getWriter();
+		 PrintWriter ps = response.getWriter();
 		
 		Login dao = new Login();
 		
@@ -68,11 +70,17 @@ public class Login extends HttpServlet {
 			session.setAttribute("username", uname);
 			response.sendRedirect("welcome.jsp");  
 			
+			//RequestDispatcher rss2 = request.getRequestDispatcher("welcome.jsp");
+			//rss2.forward(request, response);
+			
 		}else
 			{
 			
-				ps.println("user ane and password is wrong");
-				response.sendRedirect("login.jsp");
+				ps.println("Users Name & Password is wrong !");
+				RequestDispatcher rss = request.getRequestDispatcher("/login.jsp");
+				rss.include(request, response);
+				
+				//response.sendRedirect("login.jsp");
 				
 			
 			}

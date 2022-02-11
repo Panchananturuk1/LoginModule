@@ -3,10 +3,7 @@
 
 
 
-table{
-	align:center;
-	margin-left:200px;
-}
+
 .content-table{
 	border-collapse:collapse;
 	min-width:400px;
@@ -47,7 +44,7 @@ table{
 }
 
 
-input[type=text]{
+input[type=text], [type=password]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -57,11 +54,11 @@ input[type=text]{
   box-sizing: border-box;
 }
 
-.content-table input[type=submit] {
+.content-table input[type=submit], [type=reset] {
   width: 100%;
   background-color: #4CAF50;
   color: white;
-  padding: 14px 20px;
+  padding: 10px 3px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;

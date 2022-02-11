@@ -10,13 +10,15 @@
 <body>
 <form action="adminLogin" method="post">
 	<table class="content-table">
-			<tr><th colspan="2">Login</th></tr>
+			
+			<tr><th colspan="2">Admin Login</th></tr>
 			<tr><td>Enter User name: </td> <td><input type="text" name="uname" ></td></tr>
 			<tr><td>Enter Password: </td> <td><input type="password" name="pass" ></td></tr>
 			<tr><td colspan="2"><input type="submit" name="submit" value="login"></td> 	</tr>
-			<tr><td colspan="2"><a href="Register.jsp">New User Register Here</a></td></tr>
+			<tr><td colspan="2"><a href="login.jsp"> User Login Page</a></td></tr>
 	</table>
 </form>
 
 </body>
+
 </html>
