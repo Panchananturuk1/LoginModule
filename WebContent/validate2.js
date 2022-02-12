@@ -5,9 +5,9 @@ function validates(){
 	var Email = document.form.email.value;
 	var Password1 = document.form.pass.value;
 	var Password2 = document.form.pass2.value;
-	var Password3 = document.form.pass3.value;
-//	var Gender = document.form.gen.value;
-	//var Gender2 = document.getEelementById(gens).value;
+	//var Password3 = document.form.pass3.value;
+	var Gender = document.form.gen.value;
+//	var Gender2 = document.getEelementById(gens).value;
 	
 	if(Username==null || Username=="")
 	{
@@ -37,20 +37,26 @@ function validates(){
 		return false;
 	}
 	
-//	else if(Password2!=Password1)
-//	{
-//		alert("Your password is not matching");
-//		document.form.pass2.focus();
-//		return false;
-//	}
-	
-	else if(Password3==null || Password3=="")
+	else if(Password2!=Password1)
 	{
-		alert(" your password3 not entered");
-		document.form.pass3.focus();
+		alert("Your password is not matching");
+		document.form.pass2.focus();
 		return false;
 	}
 	
+	
+//	 if ( ( form.gen[0].checked == false ) && ( form.gen[1].checked == false ) ) 
+//	  {
+//	  alert ( "Please choose your Gender: Male or Female" ); 
+//	  return false;
+//	  }
+	
+	
+	else if(Gender==null || Gender=="")
+	{
+		alert("Gender select");
+		return false;
+	}
 	
 	
 

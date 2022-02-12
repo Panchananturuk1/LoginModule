@@ -30,8 +30,8 @@ public class userdata extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
-	//	PrintWriter ps = response.getWriter();
-		
+		PrintWriter out = response.getWriter();
+		out.println("<html><body>");  
 		
 		try{
 			
@@ -40,41 +40,35 @@ public class userdata extends HttpServlet {
 			Statement pss = con.createStatement();
 			ResultSet rds = pss.executeQuery("select * from hey");
 			
-			PrintWriter out = response.getWriter();
+		
 			
-			  out.println("<table border=1 width=50% height=50%>");  
-	             out.println("<tr><th>User Name</th><th>Email</th><th>Password</th><tr>");  
-	             out.println("User name and password matches");
+				 out.println("<table border=1 width=50% height=50%>");  
+	             out.println("<tr><th>User Name</th><th>Email</th><th>Password</th><th>Gender</th><tr>");  
+	             
+	             out.println("<script type=\"text/javascript\">");
+	             out.println("alert('User name or password is correct');");
+	           //  out.println("location='index.jsp';");
+	             out.println("</script>");
+	             
 	             while (rds.next()) 
 	             {  
-	           
-	            	// RequestDispatcher rq = request.getRequestDispatcher();
-	            	// rq.include(request, response);
-	            	 
-	            	 
-                 String un = rds.getString("uname");  
-	              
-	                 
+       	            	 
+	              String un = rds.getString("uname");  
 	              String em = rds.getString("email");  
 	              String ps2 = rds.getString("pass"); 
+	              String gens = rds.getString("gender"); 
 	              
-	              out.println("<tr><td>" + un + "</td><td>" + em + "</td><td>" + ps2 + "</td></tr>");     
-	            	 
-	            	
-	            
+	              out.println("<tr><td>" + un + "</td><td>" + em + "</td><td>" + ps2 + "</td><td>" + gens +"</td></tr>");     
 	             }  
 	             out.println("</table>");  
 	             out.println("</html></body>");  
 	             con.close();  
 	            
 			
-		}catch (Exception e) {
+				}catch (Exception e) {
 						e.printStackTrace();
-		}
-		
-		
-		
-		
+					}
+
 	}
 
 	

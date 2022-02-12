@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	String username , emails, password1,password2;
+	String username , emails, password1,password2, gender;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 response.setContentType("text/html");
@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
 		 emails = request.getParameter("email");
 		 password1 = request.getParameter("pass");
 		 password2 = request.getParameter("pass2");
+		 gender = request.getParameter("gen");
 		
 		 
 	 PrintWriter out = response.getWriter();
@@ -38,13 +39,14 @@ public class RegisterServlet extends HttpServlet {
 			 
 			 Class.forName("com.mysql.jdbc.Driver");
 			 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");
-			 String sql = "insert into hey(uname,email,pass,pass2) values(?,?,?,?)";
+			 String sql = "insert into hey(uname,email,pass,pass2,gender) values(?,?,?,?,?)";
 			 PreparedStatement ps = con.prepareStatement(sql);
 			 
 			 ps.setString(1,username);
 			 ps.setString(2,emails);
 			 ps.setString(3,password1);
 			 ps.setString(4,password2);
+			 ps.setString(5,gender);
 			 
 			// ResultSet rs = ps.executeQuery();
 			 ps.executeUpdate();
@@ -54,6 +56,7 @@ public class RegisterServlet extends HttpServlet {
 			 
 		 }catch(Exception e){
 			 e.printStackTrace(); 
+			 out.println("ERROR");
 		 }
 		 
 	}

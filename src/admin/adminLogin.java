@@ -43,21 +43,15 @@ public class adminLogin extends HttpServlet {
 			ps.setString(2, pass);
 			ResultSet rs = ps.executeQuery();
 			
-		//	ResultSet rs = stmt.executeQuery("select * from employee");  
-           // out.println("<table border=1 width=50% height=50%>");  
-            //out.println("<tr><th>EmpId</th><th>EmpName</th><th>Salary</th><tr>"); 
-			
 			if(rs.next()){
 			return true;	
 			
 			
 			}
-			
-			
-			
+
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -75,9 +69,7 @@ public class adminLogin extends HttpServlet {
 		//email = request.getParameter("email");
 
 		 adminLogin ad = new adminLogin();
-		
-		
-		
+
 		if(ad.validate(uname, pass)){
 			
 			HttpSession s = request.getSession();
@@ -87,12 +79,16 @@ public class adminLogin extends HttpServlet {
 			rd.forward(request, response);
 		}else{
 			out.println("user name and password is wrong");
+			
+			 out.println("<script type=\"text/javascript\">");
+             out.println("alert('User name or password is incorrect');");
+        
+             out.println("</script>");
+			
 			RequestDispatcher rs2 = request.getRequestDispatcher("/admin.jsp");
 			rs2.include(request, response);
 		}
-		
-		
-		
+			
 	}
 
 }

@@ -1,7 +1,9 @@
 
-
-
-
+body{
+	background: url(image/wallpaper.jpg);
+	 background-size: cover;
+	  bacakground-image: fixed;"
+}
 
 
 .content-table{
@@ -31,7 +33,7 @@
 	border-bottom: 1px solid #dddddd;
 }
 
-.content-table tbody tr:nth-of-type(even){
+.content-table tbody tr{
 	background-color: #f3f3f3;
 }
 

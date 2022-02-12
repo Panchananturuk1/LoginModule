@@ -8,6 +8,7 @@
 <title>Admin Login</title>
 </head>
 <body>
+<div align="center">
 <form action="adminLogin" method="post">
 	<table class="content-table">
 			
@@ -18,6 +19,7 @@
 			<tr><td colspan="2"><a href="login.jsp"> User Login Page</a></td></tr>
 	</table>
 </form>
+</div>
 
 </body>
 
