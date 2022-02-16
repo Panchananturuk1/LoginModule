@@ -43,22 +43,23 @@ public class userdata extends HttpServlet {
 		
 			
 				 out.println("<table border=1 width=50% height=50%>");  
-	             out.println("<tr><th>User Name</th><th>Email</th><th>Password</th><th>Gender</th><tr>");  
+	             out.println("<tr><th>SL No</th><th>User Name</th><th>Email</th><th>Password</th><th>Gender</th><th>Image Name</th><tr>");  
 	             
 	             out.println("<script type=\"text/javascript\">");
 	             out.println("alert('User name or password is correct');");
 	           //  out.println("location='index.jsp';");
 	             out.println("</script>");
-	             
+	             int i=0;
 	             while (rds.next()) 
 	             {  
-       	            	 
+       	           
+       	           i++;
 	              String un = rds.getString("uname");  
 	              String em = rds.getString("email");  
 	              String ps2 = rds.getString("pass"); 
 	              String gens = rds.getString("gender"); 
-	              
-	              out.println("<tr><td>" + un + "</td><td>" + em + "</td><td>" + ps2 + "</td><td>" + gens +"</td></tr>");     
+	              String img = rds.getString("imgName");  
+	              out.println("<tr><td>" + i + "</td><td>" + un + "</td><td>" + em + "</td><td>" + ps2 + "</td><td>" + gens +"</td><td>" + img + "</td></tr>");     
 	             }  
 	             out.println("</table>");  
 	             out.println("</html></body>");  

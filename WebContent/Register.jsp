@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="reg.css">
-<script src="validate2.js"></script>
+<script src="validate.js"></script>
 <title>Register</title>
 
    
@@ -14,7 +14,7 @@
 </head>
 <body>
 <div align="center">
-<form name="form" action="RegisterServlet" method="post" onsubmit="return validates()">
+<form name="form" action="RegisterServlet" method="post" enctype="multipart/form-data" onsubmit="return validates()">
 	<table class="content-table">
 			<tr align="center"><th colspan="2">Registration form</th></tr>
 		<tbody>
@@ -30,6 +30,23 @@
 			<tr><td>Enter your Gender:</td>
 			<td><input type="radio" name="gen" id="gens" value="Male">Male &nbsp; &nbsp;
 				<input type="radio" name="gen" id="gens" value="Female">Female </td></tr>
+				
+			<tr><td>Field of Interest:</td>
+				<td><select name="Interest">
+						<option value="-1">Select</option>
+						<option value="Software Developer">Software Developer</option>
+						<option value="Frontend Developer">Frontend Developer</option>
+						<option value="Backend Developer">Backend Developer</option>
+						<option value="Data Science">Data Science</option>
+						<option value="AI/ML">AI/ML</option>
+						<option value="Block Chain">Block Chain</option>
+				</select></td>
+			 </tr>
+			 <tr>
+			 <td>Upload your Photo:</td>
+			 <td><input type="file" name="image" /></td>
+			 </tr>
+			 
 			<tr>
 				<td><input type="submit" name="submit" value="Register" ></td> 
 				<td><input type="reset"  value="RESET"></td> 

@@ -7,6 +7,7 @@ function validates(){
 	var Password2 = document.form.pass2.value;
 	//var Password3 = document.form.pass3.value;
 	var Gender = document.form.gen.value;
+	var intrest = document.form.Interest.value;
 //	var Gender2 = document.getEelementById(gens).value;
 	
 	if(Username==null || Username=="")
@@ -59,7 +60,12 @@ function validates(){
 	}
 	
 	
-
+	else if(intrest=="-1")
+	{
+		alert("Please select Field of interest");
+		return false;
+	}
+	
 	
 	
 	
