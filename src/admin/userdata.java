@@ -14,9 +14,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.apache.catalina.tribes.group.interceptors.FragmentationInterceptorMBean;
 
+import com.mysql.cj.exceptions.RSAException;
 import com.mysql.cj.protocol.Resultset;
 
 /**
@@ -30,36 +32,69 @@ public class userdata extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
+		//response.setContentType("image/jpeg");
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>");  
 		
+//		   String imageId = request.getParameter("image");
+//    		int id = Integer.parseInt(imageId);
+		
+//    		int imgId = 0;
+//    		String imgFilename;
+
+    	//	Part prt = request.getPart("image");
+    		
 		try{
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");
 			Statement pss = con.createStatement();
-			ResultSet rds = pss.executeQuery("select * from hey");
+			ResultSet rds = pss.executeQuery("select * from image");
 			
 		
 			
 				 out.println("<table border=1 width=50% height=50%>");  
-	             out.println("<tr><th>SL No</th><th>User Name</th><th>Email</th><th>Password</th><th>Gender</th><th>Image Name</th><tr>");  
+	             out.println("<tr><th>SL No</th><th>User Name</th><th>Email</th><th>Password</th><th>Gender</th><th>Image Name</th><th>Image</th><tr>");  
 	             
 	             out.println("<script type=\"text/javascript\">");
 	             out.println("alert('User name or password is correct');");
 	           //  out.println("location='index.jsp';");
 	             out.println("</script>");
-	             int i=0;
+	             
+	             
+	             
+	             
+	             
+	             
+	          
+	             int serial_no=0;
 	             while (rds.next()) 
 	             {  
        	           
-       	           i++;
+	            	 serial_no++;
 	              String un = rds.getString("uname");  
 	              String em = rds.getString("email");  
 	              String ps2 = rds.getString("pass"); 
 	              String gens = rds.getString("gender"); 
 	              String img = rds.getString("imgName");  
-	              out.println("<tr><td>" + i + "</td><td>" + un + "</td><td>" + em + "</td><td>" + ps2 + "</td><td>" + gens +"</td><td>" + img + "</td></tr>");     
+	              
+	              
+	              String imgFileName=(String)request.getAttribute("img");
+	              String imgId=(String)request.getAttribute("id");
+	              
+	              
+	           //   Part prt = rds.getPart("image");
+	              
+	           
+	            	//int  imgId=rds.getInt("img");
+	            	// String imgFilename = rds.getString("imgName");
+	            	  
+	              
+	          //    int imgId = Integer.parseInt(rds.getString("imgName"));  
+	              out.println("<tr><td>" + serial_no + "</td><td>" + un + "</td><td>" + em + "</td><td>" + ps2 + "</td><td>" + gens +"</td><td>" + img + "</td><td>" + imgId + "</td><td>" + imgFileName + "</td></tr>");     
+	            
+	             
+	             
 	             }  
 	             out.println("</table>");  
 	             out.println("</html></body>");  

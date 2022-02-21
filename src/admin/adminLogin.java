@@ -75,7 +75,7 @@ public class adminLogin extends HttpServlet {
 			HttpSession s = request.getSession();
 			s.setAttribute("username", uname);
 			//response.sendRedirect("userdata.jsp");
-			RequestDispatcher rd = request.getRequestDispatcher("userdata");
+			RequestDispatcher rd = request.getRequestDispatcher("UserData.jsp");
 			rd.forward(request, response);
 		}else{
 			out.println("user name and password is wrong");

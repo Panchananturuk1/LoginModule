@@ -8,6 +8,7 @@ function validates(){
 	//var Password3 = document.form.pass3.value;
 	var Gender = document.form.gen.value;
 	var intrest = document.form.Interest.value;
+	var img = document.form.image.value;
 //	var Gender2 = document.getEelementById(gens).value;
 	
 	if(Username==null || Username=="")
@@ -67,7 +68,11 @@ function validates(){
 	}
 	
 	
-	
+	else if(img==null || img=="")
+	{
+		alert("Please Upload yout Photo");
+		return false;
+	}
 	
 	
 	

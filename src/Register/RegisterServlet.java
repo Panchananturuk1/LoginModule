@@ -43,11 +43,15 @@ public class RegisterServlet extends HttpServlet {
 		 password2 = request.getParameter("pass2");
 		 gender = request.getParameter("gen");
 		 Interest = request.getParameter("Interest");
-		Part part = request.getPart("image");
+		 Part part = request.getPart("image");
+
 		 filename = part.getSubmittedFileName();
 
 		 
-
+//		 int imgeId=0;
+//		  String imgFilename=null;
+		 
+		 
 //		 out.println(username);
 //		 out.println(emails);
 //		 out.println(password1);
@@ -66,12 +70,17 @@ public class RegisterServlet extends HttpServlet {
 			 ps.setString(5,gender);
 			 ps.setString(6,Interest);
 			 ps.setString(7, filename);
+			 //ps.setString(7, path);
+			 
 			 
 			// ResultSet rs = ps.executeQuery();
-			 ps.executeUpdate();
+			 int row = ps.executeUpdate();
+			 if(row>0){
 			 out.println("User Sucessfully Registered");
 			// response.sendRedirect("login.jsp");
-			 
+
+			 }
+						 
 			 //upload
 			 
 			InputStream is = part.getInputStream();
