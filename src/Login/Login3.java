@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -19,27 +20,35 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Login3")
 public class Login3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  String username,pass;
+	
+	String sql = "select * from hey where uname=? and pass=?";
+  String username,pass,gender;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
 		username = request.getParameter("uname");
-		pass = request.getParameter("uname");
+		pass = request.getParameter("pass");
+		gender = request.getParameter("gen");
 		PrintWriter ps = response.getWriter();
 		
 		try {
-			Class.forName("com.jdbc.mysql.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");
-			Statement st = con.createStatement();
-			String sql = "select * from hey where uname=? and pass=?";
-			ResultSet rs = st.executeQuery(sql);
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");//or ==> (url, username, password);
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, username);
+			st.setString(2, pass);
+			ResultSet rs = st.executeQuery();
 			
-			ps.println("Logged INNNNNNNNNNNNNN");
+			
 			
 			if(rs.next()){
-				ps.println("SUCESSFULLY");
+				ps.println("Welcome: "+username);
 				//response.sendRedirect("Register.jsp");
+				
+				ps.println("<br>"+" Name: "+username);
+				ps.println("<br>"+"Password: "+pass);
+				ps.println("<br>"+"Gender: "+gender);
+				
 			}else
 			{
 				ps.println("UNSUCESSFULL");
@@ -47,7 +56,7 @@ public class Login3 extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ps.println("CATCH BLOCK");
 		}
 		
 		

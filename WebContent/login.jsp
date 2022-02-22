@@ -13,7 +13,7 @@
 <title>User Login</title>
 </head>
 <body><div align="center">
-<form name="form" action="Login" method="post"  onsubmit="return validates()">
+<form name="form" action="Profile.jsp" method="post"  onsubmit="return validates()">
 	<table class="content-table">
 			<tr><th colspan="2">User Login</th></tr>
 			<tr><td>Enter User name: </td> <td><input type="text" name="uname" ></td></tr>

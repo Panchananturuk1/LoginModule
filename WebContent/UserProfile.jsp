@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.sql.*" %>
@@ -19,12 +20,12 @@
 	
 		if(session.getAttribute("username")==null){
 			
-			response.sendRedirect("admin.jsp");
+			response.sendRedirect("login.jsp");
 		}
 	%>
 	
-	<script>alert("Credential Matching");</script>
-	hey ${username} Welcome /............ <br>
+	
+	
 	
 	<table border="1">
 		<tr>
@@ -58,25 +59,45 @@
 	Connection con =null;
 	Statement st = null;
 	ResultSet rs=null;
+	 PreparedStatement ps1,ps2;
 	
 	
 	try{
 		
 		
 		
+		String uname = request.getParameter("uname");
+
+		String pass = request.getParameter("pass");
+
+		
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		con =(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");
 		
 		st=con.createStatement();
-		String qry = "select * from hey";
-		rs=st.executeQuery(qry);
+		//String qry = "select * from hey where uname=? and pass=?";
+		  ps1 = con.prepareStatement("select * from hey where uname = ? and pass=?");
+		  
+		  ps1.setString(1, uname);
+
+		  ps1.setString(2, pass);
+		  
+          ps2 = con.prepareStatement("select * from hey");
+          
+       //   rs = ps2.executeQuery();
+       
+       rs = ps1.executeQuery();
 		
-		while(rs.next())
+		if(rs.next())
 		{
+			
 			
 		//	out.print("User Name" + rs.getString(1)+"Email:"+rs.getString(2)+"Password:"+rs.getString(3) );
 		%>
+		<script>alert("Credential Matching");</script>
+		
+		<p>Welcome <%=rs.getString(2) %> </p>
 		<tr>
 			<td><%=rs.getString(1) %> </td>
 			<td><%=rs.getString(2) %> </td>
@@ -89,17 +110,24 @@
 	</tr>
 		
 			
-			<%
+			<%  
+		} else{
+			
+			out.println("USER NAME AND PASSWORD NOT MATCHING");
+			//response.sendRedirect("login.jsp");
+			
+			%>
+			<script>alert("Credential Not Matching");</script>
+			<p>ERROR </p>
+			<% 
+			
+			
 		}
-		
 		
 		
 	}catch(Exception e){
 		
 	}
-	
-	
-	
 	%>
 	</table>
 

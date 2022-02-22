@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 //import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 //import javax.servlet.RequestDispatcher;
@@ -36,6 +37,8 @@ public class Login extends HttpServlet {
 			st.setString(2, pass);
 			ResultSet rs = st.executeQuery();
 			
+			
+			
 		
 			
 						
@@ -56,6 +59,7 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html");
 		uname = request.getParameter("uname");
 		 pass = request.getParameter("pass");
+		 
 		 PrintWriter ps = response.getWriter();
 		
 		Login dao = new Login();
@@ -65,9 +69,10 @@ public class Login extends HttpServlet {
 		
 		if(dao.checks(uname,pass)){
 			
-			ps.println("user ane and password is correct");
+			ps.println("user name and password is correct");
 			HttpSession session = request.getSession();
 			session.setAttribute("username", uname);
+			session.setAttribute("password", pass);
 			response.sendRedirect("welcome.jsp");  
 			
 			//RequestDispatcher rss2 = request.getRequestDispatcher("welcome.jsp");

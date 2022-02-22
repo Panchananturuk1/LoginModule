@@ -91,7 +91,7 @@ public class RegisterServlet extends HttpServlet {
 //			String path = getServletContext().getRealPath("/"+"dp"+File.separator+filename);
 			
 			
-			String path= "C:/Users/MONU/Desktop/Eclipse/LoginModule/dp/"+filename;
+			String path= "C:/Users/MONU/Desktop/Eclipse/LoginModule/WebContent/img2/"+filename;
 						
 			//out.println(path);
 
