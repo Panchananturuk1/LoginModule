@@ -12,8 +12,19 @@
 </script>
 <title>User Login</title>
 </head>
-<body><div align="center">
-<form name="form" action="Profile.jsp" method="post"  onsubmit="return validates()">
+<body>
+		<div class="header" style="">
+		<a href="#default" class="logo">CompanyLogo</a>
+		  <div class="header-right">
+			<a class="active" href="login.jsp">User</a>
+		    <a href="Register.jsp">Register </a>
+		    <a href="admin.jsp">Admin</a> 
+		   </div>
+	    </div>
+	    
+    
+   <div class="Loginbox"align="center">
+	<form name="form" action="Profile.jsp" method="post"  onsubmit="return validates()">
 	<table class="content-table">
 			<tr><th colspan="2">User Login</th></tr>
 			<tr><td>Enter User name: </td> <td><input type="text" name="uname" ></td></tr>
@@ -24,5 +35,6 @@
 	</table>
 	</form>
 </div>
+
 </body>
 </html>

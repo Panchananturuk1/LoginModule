@@ -16,6 +16,7 @@
 	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); //  http 1.1
 	response.setHeader("Pragma","no-cache"); // HTTP 1.0
 	response.setHeader("Expires", "0"); // Proxy
+	
 	session.getAttribute("Password");
 	session.getAttribute("Email");
 	
@@ -131,7 +132,9 @@
 	%>
 	</table>
 
-
+<form action="Logout" method="post">
+	<input type="submit" name="logout" value="Logout">
+	</form>
 
 
 

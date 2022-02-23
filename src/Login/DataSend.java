@@ -28,7 +28,7 @@ public class DataSend extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");
 			
-			String uname=request.getAttribute(arg0)
+		//	String uname=request.getAttribute(arg0)
 			
 		}catch (Exception e) {
 			
