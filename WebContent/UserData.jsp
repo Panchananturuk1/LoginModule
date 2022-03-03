@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="css/user.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -23,19 +24,32 @@
 		}
 	%>
 	
-	<script>alert("Credential Matching");</script>
+
+	
+	<div class="header">
+	User Data
+	<div align="right">
+	<form action="Logout" method="post">
+	<input type="submit" name="logout" value="Logout">
+	</form>
+	</div>
+	
+	</div>
+	
+		<script>alert("Credential Matching");</script>
 	hey ${username} Welcome /............ <br>
 	
-	<table border="1">
-		<tr>
-		<td> ID:</td> 
-		 <td> User Name:</td> 
-		 <td> Email: </td> 
-		 <td> Password:  </td> 
-		 <td> Gender:</td> 
-		 <td> Interested: </td> 
-		 <td> Image Name:  </td> 
-		 <td> Image </td> 
+	<div align="center">
+	<table>
+		<tr class="table-header">
+		<th> ID:</td> 
+		 <th> User Name:</th> 
+		 <th> Email: </th> 
+		 <th> Password:  </th> 
+		 <th> Gender:</th> 
+		 <th> Interested: </th> 
+		 <th> Image Name:  </th> 
+		 <th> Image </th> 
 		 
 		 
 		</tr>
@@ -102,6 +116,7 @@
 	
 	%>
 	</table>
+	</div>
 
 
 

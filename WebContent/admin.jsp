@@ -4,11 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="reg.css">
+<link rel="stylesheet" type="text/css" href="css/reg.css">
 <title>Admin Login</title>
 </head>
 <body>
-<div align="center">
+	
+		<div class="header" style="">
+		<a href="#default" class="logo">Admin Portal</a>
+		  <div class="header-right">
+			<a class="active" href="login.jsp">User</a>
+		    <a href="Register.jsp">Register </a>
+		    <a href="admin.jsp">Admin</a> 
+		   </div>
+	    </div>
+
+<div align="center" class="Loginbox">
 <form action="adminLogin" method="post">
 	<table class="content-table">
 			

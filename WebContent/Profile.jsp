@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="prof.css">
+<link rel="stylesheet" type="text/css" href="css/prof.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,13 +17,11 @@
 	response.setHeader("Pragma","no-cache"); // HTTP 1.0
 	response.setHeader("Expires", "0"); // Proxy
 	
-	session.getAttribute("Password");
-	session.getAttribute("Email");
 	
-		if(session.getAttribute("username")==null){
+		// if(session.getAttribute("username")==null){
 			
-			response.sendRedirect("login.jsp");
-		}
+		//	response.sendRedirect("login.jsp");
+		//} 
 	%>
 	
 	
@@ -33,7 +31,6 @@
 		<tr>
 		
 
-		 
 		 
 		</tr>
 	
@@ -49,13 +46,15 @@
     // String imgFileName=(String)request.getAttribute("img");
 	 // String imgId=(String)request.getAttribute("id");
     
-  
-	
-	
+ 
 	Connection con =null;
 	Statement st = null;
 	ResultSet rs=null;
-	 PreparedStatement ps1,ps2;
+	PreparedStatement ps1,ps2;
+	
+	PrintWriter out1 = response.getWriter();
+	
+	String sql="select * from hey where uname=? and pass=?";
 	
 	
 	try{
@@ -71,10 +70,9 @@
 		Class.forName("com.mysql.jdbc.Driver");
 		con =(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","1234");
 		
-		st=con.createStatement();
+	//	st=con.createStatement();
 		//String qry = "select * from hey where uname=? and pass=?";
-		  ps1 = con.prepareStatement("select * from hey where uname = ? and pass=?");
-		  
+		  ps1 = con.prepareStatement("select * from hey where uname=? and pass=? ");
 		  ps1.setString(1, uname);
 
 		  ps1.setString(2, pass);
@@ -88,10 +86,9 @@
 		if(rs.next())
 		{
 			
-			
 		//	out.print("User Name" + rs.getString(1)+"Email:"+rs.getString(2)+"Password:"+rs.getString(3) );
 		%>
-		<script>alert("Credential Matching");</script>
+	 	<script>alert("Credential Matching");</script>
 		
 		<p>Welcome <%=rs.getString(2) %> </p>
 		
@@ -106,7 +103,7 @@
 		<tr>	<td>PASSWORD: <%=rs.getString(4) %> </td> </tr>
 		<tr>	<td>GENDER: <%=rs.getString(6) %> </td> </tr>
 		<tr>	<td><%=rs.getString(7) %> </td> </tr>
-		<tr>	<td><%=rs.getString(8) %> </td> </tr>
+		<tr>	<td><%=rs.getString(8) %> </td> </tr> 
 			
 	
 		
@@ -114,13 +111,16 @@
 			<%  
 		} else{
 			
-			out.println("USER NAME AND PASSWORD NOT MATCHING");
-			//response.sendRedirect("login.jsp");
+		//	out1.println("USER NAME AND PASSWORD NOT MATCHING");
+			//response.sendRedirect("admin.jsp");
 			
 			%>
-			<script>alert("Credential Not Matching");</script>
-			<p>ERROR </p>
+			  <script> alert("Credential Not Matching");
+			
+			  </script>  
+			  
 			<% 
+			
 			
 			
 		}
@@ -128,13 +128,14 @@
 		
 	}catch(Exception e){
 		
+		out1.println("catch block");
+		
+		
 	}
 	%>
 	</table>
 
-<form action="Logout" method="post">
-	<input type="submit" name="logout" value="Logout">
-	</form>
+
 
 
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="reg.css">
+<link rel="stylesheet" type="text/css" href="css/reg.css">
 <script src="log.js">
 
 
@@ -13,14 +13,14 @@
 <title>User Login</title>
 </head>
 <body>
-		<div class="header" style="">
-		<a href="#default" class="logo">CompanyLogo</a>
+	 	<div class="header" style="">
+		<a href="#default" class="logo">User Login</a>
 		  <div class="header-right">
 			<a class="active" href="login.jsp">User</a>
 		    <a href="Register.jsp">Register </a>
 		    <a href="admin.jsp">Admin</a> 
 		   </div>
-	    </div>
+	    </div>  
 	    
     
    <div class="Loginbox"align="center">

@@ -1,10 +1,10 @@
 
 body{
 	 font-family: Arial;
-  margin: 0;
-	background: url(image/wallpaper.jpg);
+  	 margin: 0;
+	 background: url(../image/wallpaper.jpg);
 	 background-size: cover;
-	  bacakground-image: fixed;"
+	 bacakground-image: fixed;
 }
 
 
@@ -21,7 +21,7 @@ body{
 }
 
 .Loginbox{
-	margin-top:10%;
+	margin-top:3%;
 }
 
 .header a {
