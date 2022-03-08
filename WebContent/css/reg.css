@@ -51,9 +51,12 @@ body{
 
 .content-table{
 	border-collapse:collapse;
+	border:1px solid white;
+	border-radius: 10px;
 	min-width:400px;
 	font-size:0.9em;
 	margin:25px, 0;
+	
 	
 }
 

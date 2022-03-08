@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/reg.css">
+
 <script src="validate2.js"></script>
 <title>Register</title>
 
